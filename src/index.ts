@@ -1,3 +1,4 @@
+import { FilesetResolver, GestureRecognizer } from '@mediapipe/tasks-vision';
 import ProcessorPipeline from './ProcessorPipeline';
 import BackgroundTransformer, { SegmenterBaseOptions } from './transformers/BackgroundTransformer';
 import DummyTransformer from './transformers/DummyTransformer';
@@ -41,3 +42,18 @@ export const Dummy = () => {
   const pipeline = new ProcessorPipeline([new DummyTransformer()], 'dummy');
   return pipeline;
 };
+
+export const HandGuesture = async () => {
+  // Create task for image file processing:
+const vision = await FilesetResolver.forVisionTasks(
+  // path/to/wasm/root
+  "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm "
+);
+const gestureRecognizer = await GestureRecognizer.createFromOptions(vision, {
+  baseOptions: {
+    modelAssetPath: "https://storage.googleapis.com/mediapipe-tasks/gesture_recognizer/gesture_recognizer.task"
+  },
+  numHands: 2
+});
+return gestureRecognizer;
+}

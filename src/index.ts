@@ -54,7 +54,8 @@ const gestureRecognizer = await GestureRecognizer.createFromOptions(vision, {
     modelAssetPath: "https://storage.googleapis.com/mediapipe-models/gesture_recognizer/gesture_recognizer/float16/1/gesture_recognizer.task",
     delegate: "GPU"
   },
-  numHands: 2
+  numHands: 2,
+  runningMode: "VIDEO"
 });
 return gestureRecognizer;
 }

@@ -47,7 +47,7 @@ export const HandGuesture = async () => {
   // Create task for image file processing:
 const vision = await FilesetResolver.forVisionTasks(
   // path/to/wasm/root
-  "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
+  "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm"
 );
 const gestureRecognizer = await GestureRecognizer.createFromOptions(vision, {
   baseOptions: {

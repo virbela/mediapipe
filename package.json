@@ -1,5 +1,5 @@
 {
-  "name": "@framevr/track-processors",
+  "name": "@virbela/track-processors",
   "version": "0.2.8",
   "description": "LiveKit track processors",
   "main": "dist/index.js",

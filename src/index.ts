@@ -1,4 +1,4 @@
-import { FilesetResolver, GestureRecognizer } from '@mediapipe/tasks-vision';
+import { FaceLandmarker, FilesetResolver, GestureRecognizer } from '@mediapipe/tasks-vision';
 import ProcessorPipeline from './ProcessorPipeline';
 import BackgroundTransformer, { SegmenterBaseOptions } from './transformers/BackgroundTransformer';
 import DummyTransformer from './transformers/DummyTransformer';
@@ -6,7 +6,7 @@ import DummyTransformer from './transformers/DummyTransformer';
 export * from './transformers/types';
 export { default as VideoTransformer } from './transformers/VideoTransformer';
 export { ProcessorPipeline };
-
+export type RunningMode = "IMAGE" | "VIDEO" | undefined;
 export const BackgroundBlur = (
   blurRadius: number = 10,
   segmenterOptions?: SegmenterBaseOptions,
@@ -54,8 +54,22 @@ const gestureRecognizer = await GestureRecognizer.createFromOptions(vision, {
     modelAssetPath: "https://storage.googleapis.com/mediapipe-models/gesture_recognizer/gesture_recognizer/float16/1/gesture_recognizer.task",
     delegate: "GPU"
   },
-  numHands: 2,
   runningMode: "VIDEO"
 });
 return gestureRecognizer;
+}
+export const CreateFaceLandmarker = async (mode: RunningMode) =>  {
+  const filesetResolver = await FilesetResolver.forVisionTasks(
+    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
+  );
+  const faceLandmarker = await FaceLandmarker.createFromOptions(filesetResolver, {
+    baseOptions: {
+      modelAssetPath: `https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task`,
+      delegate: "GPU"
+    },
+    outputFaceBlendshapes: true,
+    runningMode: mode,
+    numFaces: 1
+  });
+  return faceLandmarker;
 }

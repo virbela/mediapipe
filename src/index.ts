@@ -2,7 +2,7 @@ import { FaceLandmarker, FilesetResolver, GestureRecognizer } from '@mediapipe/t
 import ProcessorPipeline from './ProcessorPipeline';
 import BackgroundTransformer, { SegmenterBaseOptions } from './transformers/BackgroundTransformer';
 import DummyTransformer from './transformers/DummyTransformer';
-
+import { dependencies } from '../package.json';
 export * from './transformers/types';
 export { default as VideoTransformer } from './transformers/VideoTransformer';
 export { ProcessorPipeline };
@@ -47,7 +47,7 @@ export const HandGuesture = async () => {
   // Create task for image file processing:
 const vision = await FilesetResolver.forVisionTasks(
   // path/to/wasm/root
-  "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
+  `https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@${dependencies['@mediapipe/tasks-vision']}/wasm`,
 );
 const gestureRecognizer = await GestureRecognizer.createFromOptions(vision, {
   baseOptions: {
@@ -60,7 +60,7 @@ return gestureRecognizer;
 }
 export const CreateFaceLandmarker = async (mode: RunningMode) =>  {
   const filesetResolver = await FilesetResolver.forVisionTasks(
-    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
+    `https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@${dependencies['@mediapipe/tasks-vision']}/wasm`,
   );
   const faceLandmarker = await FaceLandmarker.createFromOptions(filesetResolver, {
     baseOptions: {

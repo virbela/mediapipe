@@ -9,6 +9,9 @@
   "repository": "https://github.com/virbela/mediapipe.git",
   "author": "Lukas Seiler",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup --onSuccess \"tsc --declaration --emitDeclarationOnly\"",
     "build-sample": "cd example && vite build",

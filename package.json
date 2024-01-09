@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "source": "src/index.ts",
   "types": "dist/src/index.d.ts",
-  "repository": "git@github.com:virbela/mediapipe.git",
+  "repository": "https://github.com/virbela/mediapipe.git",
   "author": "Lukas Seiler",
   "license": "Apache-2.0",
   "scripts": {

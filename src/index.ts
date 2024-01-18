@@ -73,3 +73,5 @@ export const CreateFaceLandmarker = async (mode: RunningMode) =>  {
   });
   return faceLandmarker;
 }
+// export types
+export { FaceLandmarker, FaceLandmarkerResult } from "@mediapipe/tasks-vision"

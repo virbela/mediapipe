@@ -1,6 +1,6 @@
 {
   "name": "@virbela/track-processors",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "LiveKit track processors",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

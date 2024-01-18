@@ -74,4 +74,4 @@ export const CreateFaceLandmarker = async (mode: RunningMode): Promise<FaceLandm
   return faceLandmarker;
 }
 // export types
-export {FaceLandmarker, FaceLandmarkerResult };
+export {FaceLandmarker, type FaceLandmarkerResult };

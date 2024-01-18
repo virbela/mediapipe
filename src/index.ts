@@ -1,4 +1,4 @@
-import { FaceLandmarker, FilesetResolver, GestureRecognizer } from '@mediapipe/tasks-vision';
+import { FaceLandmarker, FaceLandmarkerResult, FilesetResolver, GestureRecognizer } from '@mediapipe/tasks-vision';
 import ProcessorPipeline from './ProcessorPipeline';
 import BackgroundTransformer, { SegmenterBaseOptions } from './transformers/BackgroundTransformer';
 import DummyTransformer from './transformers/DummyTransformer';
@@ -58,7 +58,7 @@ const gestureRecognizer = await GestureRecognizer.createFromOptions(vision, {
 });
 return gestureRecognizer;
 }
-export const CreateFaceLandmarker = async (mode: RunningMode) =>  {
+export const CreateFaceLandmarker = async (mode: RunningMode): Promise<FaceLandmarker> =>  {
   const filesetResolver = await FilesetResolver.forVisionTasks(
     `https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@${dependencies['@mediapipe/tasks-vision']}/wasm`,
   );
@@ -74,4 +74,4 @@ export const CreateFaceLandmarker = async (mode: RunningMode) =>  {
   return faceLandmarker;
 }
 // export types
-export { FaceLandmarker, FaceLandmarkerResult } from "@mediapipe/tasks-vision"
+export {FaceLandmarker, FaceLandmarkerResult };

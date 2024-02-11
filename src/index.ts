@@ -1,4 +1,4 @@
-import { FaceLandmarker, FaceLandmarkerResult, FilesetResolver, GestureRecognizer } from '@mediapipe/tasks-vision';
+import { FaceLandmarker, type FaceLandmarkerResult, FilesetResolver, GestureRecognizer } from '@mediapipe/tasks-vision';
 import ProcessorPipeline from './ProcessorPipeline';
 import BackgroundTransformer, { SegmenterBaseOptions } from './transformers/BackgroundTransformer';
 import DummyTransformer from './transformers/DummyTransformer';
@@ -74,4 +74,4 @@ export const CreateFaceLandmarker = async (mode: RunningMode): Promise<FaceLandm
   return faceLandmarker;
 }
 // export types
-export {FaceLandmarker, FaceLandmarkerResult };
+export {FaceLandmarker, type FaceLandmarkerResult };

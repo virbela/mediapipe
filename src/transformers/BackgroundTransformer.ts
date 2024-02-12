@@ -3,15 +3,26 @@ import { dependencies } from '../../package.json';
 import VideoTransformer from './VideoTransformer';
 import { VideoTransformerInitOptions } from './types';
 
+<<<<<<< HEAD
 export type SegmenterBaseOptions = Partial<vision.ImageSegmenterOptions['baseOptions']>;
+=======
+export type SegmenterOptions = Partial<vision.ImageSegmenterOptions['baseOptions']>;
+>>>>>>> upstream/main
 
 export type BackgroundOptions = {
   blurRadius?: number;
   imagePath?: string;
+<<<<<<< HEAD
   segmenterOptions?: SegmenterBaseOptions;
 };
 
 export default class BackgroundProcessor extends VideoTransformer {
+=======
+  segmenterOptions?: SegmenterOptions;
+};
+
+export default class BackgroundProcessor extends VideoTransformer<BackgroundOptions> {
+>>>>>>> upstream/main
   static get isSupported() {
     return typeof OffscreenCanvas !== 'undefined';
   }
@@ -29,11 +40,15 @@ export default class BackgroundProcessor extends VideoTransformer {
   constructor(opts: BackgroundOptions) {
     super();
     this.options = opts;
+<<<<<<< HEAD
     if (opts.blurRadius) {
       this.blurRadius = opts.blurRadius;
     } else if (opts.imagePath) {
       this.loadBackground(opts.imagePath);
     }
+=======
+    this.update(opts);
+>>>>>>> upstream/main
   }
 
   async init({ outputCanvas, inputElement: inputVideo }: VideoTransformerInitOptions) {
@@ -107,6 +122,18 @@ export default class BackgroundProcessor extends VideoTransformer {
     }
   }
 
+<<<<<<< HEAD
+=======
+  async update(opts: BackgroundOptions) {
+    this.options = opts;
+    if (opts.blurRadius) {
+      this.blurRadius = opts.blurRadius;
+    } else if (opts.imagePath) {
+      await this.loadBackground(opts.imagePath);
+    }
+  }
+
+>>>>>>> upstream/main
   async drawVirtualBackground(frame: VideoFrame) {
     if (!this.canvas || !this.ctx || !this.segmentationResults || !this.inputVideo) return;
     // this.ctx.save();

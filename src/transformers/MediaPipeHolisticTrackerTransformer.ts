@@ -7,7 +7,11 @@ export type MediaPipeHolisticTrackerTransformerOptions = {
   callback?: (results: Results) => void;
 };
 
+<<<<<<< HEAD
 export default class MediaPipeHolisticTrackerTransformer extends VideoTransformer {
+=======
+export default class MediaPipeHolisticTrackerTransformer extends VideoTransformer<MediaPipeHolisticTrackerTransformerOptions> {
+>>>>>>> upstream/main
   holistic?: Holistic;
   holisticOptions: Options;
   callback: (results: Results) => void;
@@ -45,6 +49,11 @@ export default class MediaPipeHolisticTrackerTransformer extends VideoTransforme
     await this.holistic?.close();
   }
 
+<<<<<<< HEAD
+=======
+  async update() {}
+
+>>>>>>> upstream/main
   async transform(): Promise<void> {
     return;
   }

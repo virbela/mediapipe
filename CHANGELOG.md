@@ -1,5 +1,14 @@
 # @livekit/track-processors
 
+<<<<<<< HEAD
+=======
+## 0.3.0
+
+### Minor Changes
+
+- Replace ProcessorPipeline with ProcessorWrapper, allowing for direct transformer updates - [#32](https://github.com/livekit/track-processors-js/pull/32) ([@lukasIO](https://github.com/lukasIO))
+
+>>>>>>> upstream/main
 ## 0.2.8
 
 ### Patch Changes

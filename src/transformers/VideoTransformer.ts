@@ -1,6 +1,12 @@
 import { VideoTrackTransformer, VideoTransformerInitOptions } from './types';
 
+<<<<<<< HEAD
 export default abstract class VideoTransformer implements VideoTrackTransformer {
+=======
+export default abstract class VideoTransformer<Options extends Record<string, unknown>>
+  implements VideoTrackTransformer<Options>
+{
+>>>>>>> upstream/main
   transformer?: TransformStream;
 
   canvas?: OffscreenCanvas;
@@ -47,4 +53,9 @@ export default abstract class VideoTransformer implements VideoTrackTransformer 
     frame: VideoFrame,
     controller: TransformStreamDefaultController<VideoFrame>,
   ): void;
+<<<<<<< HEAD
+=======
+
+  abstract update(options: Options): void;
+>>>>>>> upstream/main
 }

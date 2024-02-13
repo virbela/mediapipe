@@ -1,4 +1,4 @@
-import { FaceLandmarker, FaceLandmarkerResult, FilesetResolver, GestureRecognizer } from '@mediapipe/tasks-vision';
+import { FaceLandmarker, type FaceLandmarkerResult, FilesetResolver, GestureRecognizer } from '@mediapipe/tasks-vision';
 import ProcessorWrapper from './ProcessorWrapper';
 import { dependencies } from '../package.json';
 import BackgroundTransformer, {

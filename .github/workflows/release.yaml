@@ -29,8 +29,11 @@ jobs:
           # Set registry-url to npm's registry
           registry-url: 'https://registry.npmjs.org/'
           scope: '@virbela'
-      - run: npm ci
-      - run: npm run build
-      - run: npm publish --access public
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - run: pnpm i
+      - run: pnpm run build
+      - run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

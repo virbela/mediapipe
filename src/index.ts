@@ -1,5 +1,6 @@
 import { FaceLandmarker, FaceLandmarkerResult, FilesetResolver, GestureRecognizer } from '@mediapipe/tasks-vision';
 import ProcessorWrapper from './ProcessorWrapper';
+import { dependencies } from '../package.json';
 import BackgroundTransformer, {
   BackgroundOptions,
   SegmenterOptions,
@@ -8,7 +9,7 @@ import BackgroundTransformer, {
 export * from './transformers/types';
 export { default as VideoTransformer } from './transformers/VideoTransformer';
 export { ProcessorWrapper, type BackgroundOptions, type SegmenterOptions, BackgroundTransformer };
-
+export type RunningMode = "IMAGE" | "VIDEO" | undefined;
 export const BackgroundBlur = (blurRadius: number = 10, segmenterOptions?: SegmenterOptions) => {
   return BackgroundProcessor({ blurRadius, segmenterOptions }, 'background-blur');
 };

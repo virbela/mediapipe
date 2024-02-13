@@ -7,10 +7,6 @@ export interface VideoTransformerInitOptions extends TrackTransformerInitOptions
   inputElement: HTMLVideoElement;
 }
 
-<<<<<<< HEAD
-export interface VideoTrackTransformer<
-  T extends TrackTransformerInitOptions = VideoTransformerInitOptions,
-=======
 export interface AudioTransformerInitOptions extends TrackTransformerInitOptions {}
 
 export interface VideoTrackTransformer<Options extends Record<string, unknown>>
@@ -40,15 +36,10 @@ export type TrackTransformer<Options extends Record<string, unknown>> =
 export interface BaseTrackTransformer<
   T extends TrackTransformerInitOptions,
   DataType extends VideoFrame | AudioData,
->>>>>>> upstream/main
 > {
   init: (options: T) => void;
   destroy: () => void;
   restart: (options: T) => void;
-<<<<<<< HEAD
-  transform: (frame: VideoFrame, controller: TransformStreamDefaultController) => void;
-=======
   transform: (frame: DataType, controller: TransformStreamDefaultController) => void;
->>>>>>> upstream/main
   transformer?: TransformStream;
 }
